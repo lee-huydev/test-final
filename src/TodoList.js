@@ -4,7 +4,7 @@ import { FaRegCircle } from 'react-icons/fa';
 const TodoList = ({ elem, listTodo, setListTodo }) => {
    const timeCreated = elem.date.split('/')
    const timeExpire = new Date()
-   timeExpire.setDate(timeExpire.getDate() + 7)
+   timeExpire.setDate(timeExpire.getDate())
    const handleEvent = () => {
       const data = listTodo.filter(e => e.todo !== elem.todo)
       if(elem.status === false) {
@@ -20,7 +20,7 @@ const TodoList = ({ elem, listTodo, setListTodo }) => {
       >
          <FaRegCircle className="item-done-button" color="#9a9a9a" />
          <div className="item-title">{elem.todo}</div>
-         <div className='time-due'>{timeExpire.getDate() - Number(timeCreated[0])} day</div>
+         <div className='time-due'>{(Number(timeCreated[0]) + 7) - timeExpire.getDate()} day</div>
       </div>
    );
 };
