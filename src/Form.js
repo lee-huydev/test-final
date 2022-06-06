@@ -1,9 +1,14 @@
 import { useState } from "react";
 
 const Form = ({setListTodo, listTodo}) => {
+  const today = new Date()
+  const day = today.getDate()
+  const month = today.getMonth()
+  const year = today.getFullYear()
   const [value, setValue] = useState({
     todo: '',
-    status: false
+    status: false,
+    date: `${day}/${month}/${year}`
   })
   const local = localStorage.getItem('todo') ? JSON.parse(localStorage.getItem('todo')) : []
   const handleSubmit = (e) => {
@@ -12,7 +17,8 @@ const Form = ({setListTodo, listTodo}) => {
     localStorage.setItem('todo', JSON.stringify([...local, value]))
     setValue({
       todo: '',
-      status: false
+      status: false,
+      date: `${day}/${month}/${year}`
     })
   }
     return (
