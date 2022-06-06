@@ -35,13 +35,15 @@ const Home = () => {
    useEffect(() => {
       if (checked) {
          setRender(listTodo.filter(e => !taskNot.includes(e)));
-         setNumber(taskNot.length)
+         setNumber(render.length)
       } else {
          setRender(listTodo);
          setTaskNot([])
          setNumber(listTodo.length)
       }
    }, [checked]);
+   const data = listTodo.filter(e => !taskNot.includes(e))
+   console.log(data)
    return (
       <div className="App">
          <div className="container">

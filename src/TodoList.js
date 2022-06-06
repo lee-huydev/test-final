@@ -17,14 +17,12 @@ const TodoList = ({
    };
    useEffect(() => {
       if (done) {
-         refClick.current.classList.add('done');
+         refClick.current.style.textDecoration = 'line-through'
          if (!taskNot.includes(elem)) {
             setTaskNot([...taskNot, elem]);
          }
-         // const valueNotFinish = listTodo.filter((e) => e !== elem);
-         //  setTaskNot(valueNotFinish);
       } else {
-         refClick.current.classList.remove('done');
+         refClick.current.style.textDecoration = 'none'
       }
    }, [done]);
    return (
